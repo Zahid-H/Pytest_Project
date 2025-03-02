@@ -24,6 +24,7 @@ class Test_01_Admin_login:
             assert True
             self.driver.close()
         else:
+            self.driver.save_screenshot(".\\screenshots\\test_title_verification.png")
             self.driver.close()
             assert False
 
@@ -42,6 +43,7 @@ class Test_01_Admin_login:
             sleep(2)
             self.driver.close()
         else:
+            self.driver.save_screenshot(".\\screenshots\\test_valid_admin_login.png")
             self.driver.close()
             sleep(2)
             assert False
@@ -64,6 +66,7 @@ class Test_01_Admin_login:
             assert True
             self.driver.close()
         else:
+            self.driver.save_screenshot(".\\screenshots\\test_invalid_admin_login.png")
             self.driver.close()
             assert False
 
