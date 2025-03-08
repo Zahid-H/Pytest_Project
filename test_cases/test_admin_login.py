@@ -8,7 +8,7 @@ from utilities.read_properties import Read_Config
 
 
 class Test_01_Admin_login:
-    #using ini file and calling properties from the utilities/read_properties -> config.ini
+    #using ini file and calling properties from the utilities/read_properties -> c.ini
     admin_page_url = Read_Config.get_admin_page_url()
     username = Read_Config.get_username()
     password = Read_Config.get_password()
@@ -36,17 +36,16 @@ class Test_01_Admin_login:
         self.admin_lp.enter_username(self.username)
         self.admin_lp.enter_password(self.password)
         self.admin_lp.click_login()
-        sleep(2)
+
 
         act_dashboard_text = self.driver.find_element(By.XPATH, "//div[@class='content-header']").text
         if act_dashboard_text == "Dashboard":
             assert True
-            sleep(2)
             self.driver.close()
         else:
             self.driver.save_screenshot(".\\screenshots\\test_valid_admin_login.png")
             self.driver.close()
-            sleep(2)
+
             assert False
 
     def test_invalid_admin_login(self,setup):
