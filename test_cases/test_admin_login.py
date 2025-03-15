@@ -70,7 +70,7 @@ class Test_01_Admin_login:
         self.admin_lp.click_login()
         sleep(2)
 
-        error_massage = self.driver.find_element(By.XPATH("//li")).text
+        error_massage = self.driver.find_element(By.XPATH, "//li").text
         if error_massage == "No customer account found":
             assert True
             self.logger.info("Test_01_Admin_login -> test_invalid_admin_login -> No customer account found Matched")
